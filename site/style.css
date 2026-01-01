@@ -1,0 +1,363 @@
+/* 2000年代っぽい個人サイト風（※デモ） */
+
+:root {
+  --bg: #0a0a12;
+  --panel: #0f1633;
+  --panel2: #111a44;
+  --border: #6bf;
+  --text: #e8f1ff;
+  --muted: #b8c7ff;
+  --hot: #ff3bd4;
+  --lime: #31ff86;
+  --yellow: #ffe66b;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image: url("./assets/pattern.svg");
+  background-repeat: repeat;
+  font-family: "MS PGothic", "ＭＳ Ｐゴシック", Arial, sans-serif;
+  font-size: 14px;
+}
+
+.page {
+  padding: 12px 10px 18px;
+}
+
+.layout {
+  width: 980px;
+  margin: 0 auto;
+  border: 3px double var(--border);
+  background: rgba(10, 10, 18, 0.65);
+}
+
+.header {
+  background: linear-gradient(180deg, #13205a, #0d1538);
+  border-bottom: 2px solid var(--border);
+}
+
+.titlebar {
+  padding: 10px 12px;
+}
+
+.title {
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.subtitle {
+  margin-top: 6px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.sidebar {
+  vertical-align: top;
+  width: 200px;
+  padding: 10px;
+}
+
+.left { border-right: 1px dashed rgba(102, 204, 255, 0.7); }
+.right { border-left: 1px dashed rgba(102, 204, 255, 0.7); }
+
+.main {
+  vertical-align: top;
+  padding: 10px;
+}
+
+.box {
+  border: 2px outset rgba(107, 204, 255, 0.9);
+  background: linear-gradient(180deg, var(--panel), rgba(8, 10, 24, 0.85));
+  margin-bottom: 10px;
+}
+
+.box.inner {
+  margin-top: 10px;
+  border-style: inset;
+}
+
+.box-title {
+  padding: 6px 8px;
+  font-weight: 700;
+  background: linear-gradient(90deg, rgba(255, 59, 212, 0.35), rgba(49, 255, 134, 0.2));
+  border-bottom: 1px solid rgba(107, 204, 255, 0.7);
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.6);
+}
+
+.box-body {
+  padding: 8px;
+}
+
+.center { text-align: center; }
+
+.nav {
+  display: block;
+  padding: 6px 8px;
+  margin-bottom: 6px;
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid rgba(107, 204, 255, 0.65);
+  background: linear-gradient(180deg, rgba(17, 26, 68, 0.9), rgba(15, 22, 51, 0.9));
+}
+
+.nav:hover {
+  border-color: var(--hot);
+  color: #fff;
+}
+
+.hr {
+  border: 0;
+  height: 1px;
+  background: rgba(107, 204, 255, 0.6);
+  margin: 10px 0;
+}
+
+.mini {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.label {
+  color: var(--yellow);
+}
+
+.mono {
+  font-family: "MS Gothic", Consolas, monospace;
+  color: #d7e9ff;
+}
+
+.banner, .uc {
+  image-rendering: pixelated;
+  border: 1px solid rgba(232, 241, 255, 0.25);
+}
+
+.footer {
+  text-align: center;
+  padding: 8px 0 2px;
+}
+
+.news {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.diary .entry {
+  border: 1px solid rgba(107, 204, 255, 0.4);
+  margin-bottom: 8px;
+}
+
+.entry-head {
+  padding: 6px 8px;
+  background: rgba(49, 255, 134, 0.12);
+  border-bottom: 1px solid rgba(107, 204, 255, 0.35);
+  font-weight: 700;
+}
+
+.entry-body {
+  padding: 8px;
+  line-height: 1.6;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.thumb {
+  height: 72px;
+  display: grid;
+  place-items: center;
+  border: 2px ridge rgba(255, 230, 107, 0.6);
+  background: rgba(10, 10, 18, 0.55);
+  font-size: 26px;
+}
+
+.linktable {
+  width: 100%;
+  border: 1px solid rgba(107, 204, 255, 0.6);
+}
+
+.linktable td {
+  border-top: 1px solid rgba(107, 204, 255, 0.25);
+  padding: 6px 8px;
+}
+
+.lt-label {
+  width: 90px;
+  color: var(--yellow);
+  background: rgba(255, 230, 107, 0.08);
+}
+
+.webring {
+  border: 1px dashed rgba(107, 204, 255, 0.6);
+  padding: 8px;
+  margin-bottom: 10px;
+  background: rgba(10, 10, 18, 0.35);
+}
+
+.webring-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.webring-links a {
+  margin-right: 10px;
+  color: var(--lime);
+}
+
+.counter-digits {
+  font-family: "MS Gothic", Consolas, monospace;
+  font-size: 26px;
+  padding: 6px 8px;
+  border: 2px inset rgba(107, 204, 255, 0.9);
+  background: rgba(0, 0, 0, 0.35);
+  display: inline-block;
+  letter-spacing: 2px;
+}
+
+.counter-label {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.notes {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.gb {
+  border: 1px solid rgba(107, 204, 255, 0.3);
+  padding: 8px;
+  background: rgba(10, 10, 18, 0.25);
+}
+
+.gb-row {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+  align-items: start;
+}
+
+.gb-label {
+  color: var(--yellow);
+  padding-top: 6px;
+}
+
+.gb-input, .gb-text {
+  width: 100%;
+  border: 2px inset rgba(107, 204, 255, 0.9);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--text);
+  padding: 6px 8px;
+  font-family: inherit;
+}
+
+.gb-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  border: 2px outset rgba(255, 230, 107, 0.8);
+  background: linear-gradient(180deg, rgba(255, 230, 107, 0.22), rgba(255, 230, 107, 0.08));
+  color: var(--text);
+  padding: 6px 10px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn:active {
+  border-style: inset;
+}
+
+.btn-sub {
+  border-color: rgba(107, 204, 255, 0.75);
+  background: linear-gradient(180deg, rgba(107, 204, 255, 0.2), rgba(107, 204, 255, 0.06));
+}
+
+#guestbookLog {
+  display: grid;
+  gap: 8px;
+}
+
+.gb-item {
+  border: 1px solid rgba(107, 204, 255, 0.35);
+  background: rgba(10, 10, 18, 0.25);
+  padding: 8px;
+}
+
+.gb-meta {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.status {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid rgba(49, 255, 134, 0.5);
+  padding: 6px 10px;
+  background: rgba(49, 255, 134, 0.08);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 10px rgba(49, 255, 134, 0.8);
+}
+
+.noscript {
+  width: 980px;
+  margin: 10px auto 0;
+  padding: 8px 10px;
+  border: 2px solid rgba(255, 59, 212, 0.8);
+  background: rgba(255, 59, 212, 0.1);
+}
+
+/* それっぽい演出 */
+.blink {
+  animation: blink 1s steps(2, end) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.rainbow {
+  background: linear-gradient(90deg, #ff3bd4, #ffe66b, #31ff86, #6bf);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sparkle {
+  color: var(--yellow);
+  text-shadow: 0 0 6px rgba(255, 230, 107, 0.65);
+}
+
+.marquee-wrap {
+  display: inline-block;
+  width: 100%;
+}
+
+@media (max-width: 1020px) {
+  .layout, .noscript { width: 100%; }
+  .sidebar { width: 180px; }
+}

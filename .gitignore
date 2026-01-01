@@ -1,0 +1,37 @@
+# 環境ファイル
+.env
+.env.local
+*.pem
+
+# エディタ・IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Node.js（もし使う場合）
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python（もし使う場合）
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# ビルド・ディストリビューション
+dist/
+build/
+*.egg-info/
+
+# ローカルテスト・ログ
+*.log
+.tmp/
+
+# ブラウザのlocalStorage等（JS実行時の動的データ）
+# （このプロジェクトでは該当なし）

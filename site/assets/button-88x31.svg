@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2b6b"/>
+      <stop offset="1" stop-color="#0d1538"/>
+    </linearGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="87" height="30" rx="0" fill="url(#g)" stroke="#66bbff"/>
+  <rect x="2" y="2" width="84" height="27" fill="none" stroke="#ffe66b" opacity="0.8"/>
+  <text x="44" y="13" text-anchor="middle" font-family="MS Gothic, Consolas, monospace" font-size="9" fill="#e8f1ff">○○の部屋</text>
+  <text x="44" y="24" text-anchor="middle" font-family="MS Gothic, Consolas, monospace" font-size="8" fill="#31ff86">88x31 BANNER</text>
+  <circle cx="8" cy="8" r="2" fill="#ff3bd4"/>
+  <circle cx="80" cy="23" r="2" fill="#31ff86"/>
+</svg>
