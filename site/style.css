@@ -1,15 +1,17 @@
 /* 2000年代っぽい個人サイト風（※デモ） */
 
 :root {
-  --bg: #0a0a12;
-  --panel: #0f1633;
-  --panel2: #111a44;
+  --bg: #000005;
+  --panel: #0a0e1f;
+  --panel2: #0c1230;
   --border: #6bf;
   --text: #e8f1ff;
   --muted: #b8c7ff;
   --hot: #ff3bd4;
   --lime: #31ff86;
   --yellow: #ffe66b;
+  --red: #ff2d55;
+  --purple: #b844ff;
 }
 
 * { box-sizing: border-box; }
@@ -26,6 +28,37 @@ body {
   background-repeat: repeat;
   font-family: "MS PGothic", "ＭＳ Ｐゴシック", Arial, sans-serif;
   font-size: 14px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* 背景に大きな漢字のウォーターマーク */
+body::before {
+  content: "闇";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  font-size: 600px;
+  font-weight: 900;
+  color: rgba(107, 187, 255, 0.03);
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+}
+
+body::after {
+  content: "覚醒";
+  position: fixed;
+  top: 20%;
+  right: 10%;
+  transform: rotate(25deg);
+  font-size: 200px;
+  font-weight: 900;
+  color: rgba(255, 59, 212, 0.04);
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
 }
 
 .page {
@@ -36,12 +69,14 @@ body {
   width: 980px;
   margin: 0 auto;
   border: 3px double var(--border);
-  background: rgba(10, 10, 18, 0.65);
+  background: rgba(5, 5, 10, 0.85);
+  box-shadow: 0 0 40px rgba(107, 187, 255, 0.3), inset 0 0 60px rgba(0, 0, 0, 0.6);
 }
 
 .header {
-  background: linear-gradient(180deg, #13205a, #0d1538);
+  background: linear-gradient(180deg, #0d1540, #060820);
   border-bottom: 2px solid var(--border);
+  box-shadow: 0 2px 12px rgba(107, 187, 255, 0.4);
 }
 
 .titlebar {
@@ -360,4 +395,144 @@ body {
 @media (max-width: 1020px) {
   .layout, .noscript { width: 100%; }
   .sidebar { width: 180px; }
+}
+
+/* 中二病エフェクト追加 */
+.glow {
+  text-shadow: 0 0 8px currentColor, 0 0 16px currentColor;
+}
+
+.kanji-effect {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--hot);
+  text-shadow: 0 0 10px rgba(255, 59, 212, 0.8), 2px 2px 0 rgba(0,0,0,0.7);
+  display: inline-block;
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.warning-box {
+  border: 3px solid var(--red);
+  background: linear-gradient(135deg, rgba(255, 45, 85, 0.15), rgba(0, 0, 0, 0.3));
+  padding: 10px;
+  margin-bottom: 10px;
+  animation: warning-glow 2s ease-in-out infinite;
+}
+
+@keyframes warning-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(255, 45, 85, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(255, 45, 85, 0.8), inset 0 0 10px rgba(255, 45, 85, 0.2); }
+}
+
+.secret-box {
+  border: 2px dashed var(--purple);
+  background: linear-gradient(135deg, rgba(184, 68, 255, 0.1), rgba(0, 0, 0, 0.4));
+  padding: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.secret-box::before {
+  content: "🔒";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 6px;
+  border: 1px solid rgba(107, 187, 255, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.skill-name {
+  flex: 1;
+  color: var(--lime);
+  font-weight: 700;
+}
+
+.skill-bar {
+  width: 100px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(107, 187, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--hot), var(--lime));
+  box-shadow: 0 0 8px currentColor;
+  animation: skill-shine 3s ease-in-out infinite;
+}
+
+@keyframes skill-shine {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 1; filter: brightness(1.3); }
+}
+
+.dialogue {
+  border-left: 4px solid var(--purple);
+  padding-left: 12px;
+  margin: 12px 0;
+  font-style: italic;
+  color: var(--muted);
+  position: relative;
+}
+
+.dialogue::before {
+  content: "『";
+  position: absolute;
+  left: -8px;
+  color: var(--purple);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.dialogue::after {
+  content: "』";
+  color: var(--purple);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.forbidden {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 45, 85, 0.1) 10px,
+    rgba(255, 45, 85, 0.1) 20px
+  );
+  border: 2px solid var(--red);
+  padding: 8px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.glitch {
+  position: relative;
+  animation: glitch-anim 3s infinite;
+}
+
+@keyframes glitch-anim {
+  0%, 90%, 100% { transform: translate(0); }
+  91% { transform: translate(-2px, 1px); }
+  92% { transform: translate(2px, -1px); }
+  93% { transform: translate(-1px, 2px); }
+  94% { transform: translate(1px, -2px); }
 }
