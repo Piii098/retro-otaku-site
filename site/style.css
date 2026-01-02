@@ -410,6 +410,14 @@ body::after {
   display: inline-block;
 }
 
+.katakana-term {
+  font-weight: 700;
+  color: var(--lime);
+  text-shadow: 0 0 8px rgba(49, 255, 134, 0.6), 1px 1px 0 rgba(0,0,0,0.5);
+  letter-spacing: 0.1em;
+  display: inline-block;
+}
+
 .pulse {
   animation: pulse 3s ease-in-out infinite;
   will-change: opacity, transform;
